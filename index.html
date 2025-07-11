@@ -4,6 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>E-V-O-L</title>
+
+  <!-- Open Graph meta tags for Discord embed preview -->
+  <meta property="og:title" content="winston fan club" />
+  <meta property="og:description" content="woof woof" />
+  <meta property="og:image" content="https://grocerybag.tv/media/winston.jpg" />
+  <meta property="og:url" content="https://grocerybag.tv/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="winston fan club" />
+  <meta name="twitter:description" content="woof woof" />
+  <meta name="twitter:image" content="https://grocerybag.tv/media/winston.jpg" />
+
   <style>
     html, body {
       margin: 0; padding: 0; height: 100%;
@@ -37,12 +51,12 @@
   </style>
 </head>
 <body>
-  <img src="https://enzls.github.io/dontcallme/media/winston.jpg" alt="Image" />
+  <img src="https://grocerybag.tv/media/winston.jpg" alt="Image" />
   
-  <button id="muteBtn">Mute</button>
+  <button id="muteBtn">mute</button>
 
   <audio id="backgroundAudio" loop>
-    <source src="https://enzls.github.io/dontcallme/media/SNOW3.mp3" type="audio/mpeg" />
+    <source src="https://grocerybag.tv/media/SNOW3.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
@@ -50,25 +64,22 @@
     const audio = document.getElementById('backgroundAudio');
     const btn = document.getElementById('muteBtn');
 
-    // Try to play on page load
     window.addEventListener('load', () => {
       audio.play().catch(() => {
-        // Autoplay failed (browser blocked it)
-        btn.textContent = 'Play Sound';
+        btn.textContent = 'where is all the snow?';
       });
     });
 
-    // Initial state: sound on, not muted
     audio.muted = false;
-    btn.textContent = 'Mute';
+    btn.textContent = 'mute';
 
     btn.addEventListener('click', () => {
       if (audio.paused) {
         audio.play();
-        btn.textContent = 'Mute';
+        btn.textContent = 'mute';
       } else {
         audio.muted = !audio.muted;
-        btn.textContent = audio.muted ? 'Unmute' : 'Mute';
+        btn.textContent = audio.muted ? 'unmute' : 'mute';
       }
     });
   </script>
