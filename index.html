@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>winston fan club</title>
+  <title>E-V-O-L</title>
   <style>
     html, body {
       margin: 0; padding: 0; height: 100%;
@@ -41,7 +41,7 @@
   
   <button id="muteBtn">Mute</button>
 
-  <audio id="backgroundAudio" autoplay loop>
+  <audio id="backgroundAudio" loop>
     <source src="https://enzls.github.io/dontcallme/media/SNOW3.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
@@ -50,13 +50,26 @@
     const audio = document.getElementById('backgroundAudio');
     const btn = document.getElementById('muteBtn');
 
-    // Start with sound ON
+    // Try to play on page load
+    window.addEventListener('load', () => {
+      audio.play().catch(() => {
+        // Autoplay failed (browser blocked it)
+        btn.textContent = 'Play Sound';
+      });
+    });
+
+    // Initial state: sound on, not muted
     audio.muted = false;
     btn.textContent = 'Mute';
 
     btn.addEventListener('click', () => {
-      audio.muted = !audio.muted;
-      btn.textContent = audio.muted ? 'Unmute' : 'Mute';
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = 'Mute';
+      } else {
+        audio.muted = !audio.muted;
+        btn.textContent = audio.muted ? 'Unmute' : 'Mute';
+      }
     });
   </script>
 </body>
