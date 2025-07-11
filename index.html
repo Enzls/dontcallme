@@ -2,31 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>E-V-O-L</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>winston fan club</title>
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #000;
+      margin: 0; padding: 0; height: 100%;
+      background-color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      color: #000;
+      font-family: sans-serif;
     }
-
-    video {
-      width: 80%;
-      max-width: 800px;
-      border: 2px solid #fff;
+    img {
+      max-width: 80%;
+      max-height: 80vh;
+      border: 2px solid #000;
       border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    button {
+      background: #ddd;
+      border: 1px solid #000;
+      color: #000;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #bbb;
     }
   </style>
 </head>
 <body>
-  <video autoplay loop controls>
-    <source src="https://enzls.github.io/dontcallme/media/8mb.video-rTW-POilzd0y.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <img src="https://enzls.github.io/dontcallme/media/winston.jpg" alt="Image" />
+  
+  <button id="muteBtn">Mute</button>
+
+  <audio id="backgroundAudio" autoplay loop>
+    <source src="https://enzls.github.io/dontcallme/media/SNOW3.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const audio = document.getElementById('backgroundAudio');
+    const btn = document.getElementById('muteBtn');
+
+    // Start with sound ON
+    audio.muted = false;
+    btn.textContent = 'Mute';
+
+    btn.addEventListener('click', () => {
+      audio.muted = !audio.muted;
+      btn.textContent = audio.muted ? 'Unmute' : 'Mute';
+    });
+  </script>
 </body>
 </html>
