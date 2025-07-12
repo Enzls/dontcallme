@@ -6,14 +6,12 @@
   <title>winston fan club</title>
   <link rel="icon" type="image/jpg" href="/media/winston.jpg" />
 
-  <!-- Open Graph meta tags for Discord embed preview -->
+  <!-- Meta tags -->
   <meta property="og:title" content="winston fan club" />
   <meta property="og:description" content="woof woof" />
   <meta property="og:image" content="https://grocerybag.tv/media/winston.jpg" />
   <meta property="og:url" content="https://grocerybag.tv/" />
   <meta property="og:type" content="website" />
-
-  <!-- Twitter Card meta tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="winston fan club" />
   <meta name="twitter:description" content="woof woof" />
@@ -21,45 +19,85 @@
 
   <style>
     html, body {
-      margin: 0; padding: 0; height: 100%;
+      margin: 0;
+      padding: 0;
+      height: 100%;
       background-color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
       color: #000;
       font-family: sans-serif;
     }
-    img {
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .center img {
       max-width: 80%;
-      max-height: 80vh;
+      max-height: 60vh;
       border: 2px solid #000;
       border-radius: 10px;
-      margin-bottom: 1rem;
     }
-    button {
-      background: #ddd;
-      border: 1px solid #000;
-      color: #000;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border-radius: 5px;
+
+    .discord-link {
+      font-size: 1.5rem;
+      background-color: #7289da;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(114, 137, 218, 0.4);
+      transition: background-color 0.3s ease;
+    }
+
+    .discord-link:hover {
+      background-color: #5b6eae;
+    }
+
+    .mute-button {
+      font-size: 1.2rem;
+      background-color: #000;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: bold;
+      border: none;
       cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      transition: background-color 0.3s ease;
     }
-    button:hover {
-      background: #bbb;
+
+    .mute-button:hover {
+      background-color: #222;
     }
   </style>
 </head>
 <body>
-  <img src="https://grocerybag.tv/media/winston.jpg" alt="Image" />
-  
-  <button id="muteBtn">mute</button>
 
-  <audio id="backgroundAudio" loop>
-    <source src="https://grocerybag.tv/media/SNOW3.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
+  <div class="center">
+    <a
+      href="https://discord.gg/CRMjDFNBm7"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="discord-link"
+    >
+      join the discord!
+    </a>
+
+    <img src="https://grocerybag.tv/media/winston.jpg" alt="Winston the dog" />
+    <button id="muteBtn" class="mute-button">mute</button>
+
+    <audio id="backgroundAudio" loop>
+      <source src="https://grocerybag.tv/media/SNOW3.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 
   <script>
     const audio = document.getElementById('backgroundAudio');
@@ -84,5 +122,6 @@
       }
     });
   </script>
+
 </body>
 </html>
