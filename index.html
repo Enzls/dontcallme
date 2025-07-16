@@ -43,28 +43,29 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 3rem;
     }
 
     .chatango-wrapper {
-      width: 360px;
-      height: 450px;
+      width: 320px !important;
+      height: 420px !important;
+      min-width: 320px !important;
+      min-height: 420px !important;
       border-radius: 10px;
       overflow: hidden;
       flex-shrink: 0;
-      min-width: 360px;
-      min-height: 450px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     .winston-img {
-      max-width: 350px;
-      max-height: 450px;
-      width: auto;
-      height: auto;
+      width: 420px;
+      height: 420px;
+      object-fit: cover; /* fills square, crops if needed */
       border: 2px solid #000;
       border-radius: 10px;
-      object-fit: contain;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     .discord-link {
@@ -97,87 +98,4 @@
     }
 
     .mute-button:hover {
-      background-color: #222;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <a
-      href="https://discord.gg/CRMjDFNBm7"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="discord-link"
-    >
-      join the discord!
-    </a>
-
-    <div class="row">
-      <!-- Chatango on the left -->
-      <div class="chatango-wrapper">
-        <script
-          id="cid0020000413668826967"
-          data-cfasync="false"
-          async
-          src="//st.chatango.com/js/gz/emb.js"
-        >
-          {
-            "handle":"grocerybagtv",
-            "arch":"js",
-            "styles":{
-              "a":"000000",
-              "b":100,
-              "c":"FFFFFF",
-              "d":"FFFFFF",
-              "k":"000000",
-              "l":"000000",
-              "m":"000000",
-              "n":"FFFFFF",
-              "p":"10",
-              "q":"000000",
-              "r":100,
-              "fwtickm":1
-            }
-          }
-        </script>
-      </div>
-
-      <!-- Winston on the right -->
-      <img src="https://grocerybag.tv/media/winston.jpg" alt="Winston the dog" class="winston-img" />
-    </div>
-
-    <button id="muteBtn" class="mute-button">mute</button>
-
-    <audio id="backgroundAudio" loop>
-      <source src="https://grocerybag.tv/media/SNOW3.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-
-  <script>
-    const audio = document.getElementById('backgroundAudio');
-    const btn = document.getElementById('muteBtn');
-
-    window.addEventListener('load', () => {
-      audio.play().catch(() => {
-        btn.textContent = 'where is all the snow?';
-      });
-    });
-
-    audio.muted = false;
-    btn.textContent = 'mute';
-
-    btn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        btn.textContent = 'mute';
-      } else {
-        audio.muted = !audio.muted;
-        btn.textContent = audio.muted ? 'unmute' : 'mute';
-      }
-    });
-  </script>
-
-</body>
-</html>
+      background-color:
